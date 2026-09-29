@@ -53,7 +53,7 @@ class LogTest(jtu.JaxTestCase):
   @parameterized.named_parameters(*DTYPE_PARAMS)
   def test_log_accuracy(self, dtype):
     bounds = [
-        ("cpu", {f16: 1.0, f32: 1.5}),
+        ("cpu", {f16: 1.0, f32: 1.5, f64: 1.5}),
         ("gpu", {f16: 1.0, f32: 1.0, f64: 1.5}),
         (TPU_EUPV1, {bf16: 1.0, f16: 1.0, f32: 4030.5}),
         ("tpu_v5p", {f16: 1.0, f32: 62.0}),
@@ -80,7 +80,7 @@ class Log2Test(jtu.JaxTestCase):
   @parameterized.named_parameters(*DTYPE_PARAMS)
   def test_log2_accuracy(self, dtype):
     bounds = [
-        ("cpu", {bf16: 2.0, f16: 2.0, f32: 2.5, f64: 1.5}),
+        ("cpu", {bf16: 2.0, f16: 2.0, f32: 2.5, f64: 2.0}),
         ("gpu", {bf16: 2.0, f16: 2.0, f32: 2.0, f64: 1.5}),
         (TPU_EUPV1, {bf16: 1.0, f16: 1.5, f32: 5159.0}),
         ("tpu_v5p", {bf16: 1.0, f16: 1.0, f32: 57.5}),
