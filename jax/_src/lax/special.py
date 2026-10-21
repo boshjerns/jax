@@ -781,9 +781,6 @@ mlir.register_lowering(
     platform='cpu',
     inline=core.Inline.XLA_LATE,
 )
-# XLA:TPU's post-layout-assignment CallInliner hits tile-layout mismatches when
-# inlining calls inside fused loops; use early inlining on TPU instead.
-mlir.register_lowering(lgamma_p, _lgamma_lowering, platform='tpu', inline=False)
 
 digamma_p = standard_unop(_float, 'digamma')
 mlir.register_lowering(digamma_p, partial(_nary_lower_hlo, chlo.digamma))
